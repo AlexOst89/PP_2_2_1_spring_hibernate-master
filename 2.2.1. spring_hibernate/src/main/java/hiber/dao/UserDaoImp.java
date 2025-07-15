@@ -28,7 +28,7 @@ public class UserDaoImp implements UserDao {
    }
 
    @Override
-   public List<User> userFromCar(String model, int series) {
+   public List<User> findUser(String model, int series) {
       Query querys = sessionFactory.getCurrentSession().createQuery(
               "SELECT u FROM User u WHERE u.userCar.id IN " +
                       "(SELECT c.id FROM Car c WHERE c.model = :model AND c.series = :series)"
